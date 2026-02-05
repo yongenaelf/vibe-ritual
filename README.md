@@ -6,19 +6,28 @@ A spiritual ritual and intention-setting application with a beautiful, meditativ
 
 ```
 vibe-ritual/
-├── frontend/           # Vite + React + TailwindCSS
+├── frontend/              # Built static files (production)
+│   ├── index.html
+│   └── assets/            # Compiled JS/CSS bundles
+├── frontend-src/          # Frontend source code
 │   ├── src/
-│   │   ├── components/ # Reusable UI components
-│   │   ├── pages/      # Page components
-│   │   └── styles/     # Global styles
+│   │   ├── components/    # Reusable UI components
+│   │   ├── pages/         # Page components
+│   │   └── main.tsx       # Entry point
 │   ├── package.json
-│   └── vite.config.ts
-├── backend/            # Node.js + Express + TypeScript
+│   ├── vite.config.ts
+│   └── tailwind.config.js
+├── backend/               # Node.js + Express + TypeScript
 │   ├── src/
-│   │   └── index.ts    # Main server entry
+│   │   └── index.ts       # Main server entry
 │   ├── package.json
 │   └── Dockerfile
-├── docker-compose.yml  # MongoDB + Redis + Backend
+├── stitch/                # Design references
+│   ├── daily_intention_space/
+│   ├── personal_sanctuary_dashboard/
+│   ├── ritual_builder_experience/
+│   └── sacred_objects_library/
+├── docker-compose.yml     # MongoDB + Redis + Backend
 └── README.md
 ```
 
@@ -53,7 +62,7 @@ vibe-ritual/
 
 1. Install frontend dependencies:
 ```bash
-cd frontend && npm install
+cd frontend-src && npm install
 ```
 
 2. Install backend dependencies:
@@ -66,7 +75,7 @@ cd backend && npm install
 **Option 1: Full Docker Setup**
 ```bash
 docker-compose up -d
-cd frontend && npm run dev
+cd frontend-src && npm run dev
 ```
 
 **Option 2: Local Development**
@@ -78,13 +87,20 @@ docker-compose up -d mongodb redis
 cd backend && npm run dev
 
 # Start frontend (in another terminal)
-cd frontend && npm run dev
+cd frontend-src && npm run dev
 ```
 
-The frontend will be available at http://localhost:5173
+The frontend dev server will be available at http://localhost:5173
 The backend API will be available at http://localhost:3000
 
-### API Endpoints
+### Building for Production
+
+```bash
+# Build frontend (outputs to frontend/ directory)
+cd frontend-src && npm run build
+```
+
+## API Endpoints
 
 - `GET /health` - Health check (MongoDB + Redis status)
 - `GET /api` - API info
@@ -102,7 +118,7 @@ The backend includes a production-ready Dockerfile with health checks for Kubern
 docker-compose up --build
 
 # Or build the backend image separately
-docker build -f backend/Dockerfile -t vibe-ritual-backend .
+docker build -f backend/Dockerfile -t vibe-ritual-backend ./backend
 ```
 
 ## Design System
