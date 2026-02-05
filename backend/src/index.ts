@@ -17,7 +17,8 @@ app.use(express.json())
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017'
 const MONGODB_DATABASE = process.env.MONGODB_DATABASE || 'vibe_ritual'
 
-mongoose.connect(`${MONGODB_URI}/${MONGODB_DATABASE}`)
+// Use dbName option to avoid issues when URI already contains a path
+mongoose.connect(MONGODB_URI, { dbName: MONGODB_DATABASE })
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('MongoDB connection error:', err))
 
