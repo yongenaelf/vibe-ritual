@@ -18,7 +18,7 @@ const ritualSteps: RitualStep[] = [
 ]
 
 export default function RitualBuilder() {
-  const [currentStep, setCurrentStep] = useState(2)
+  const [currentStep, _setCurrentStep] = useState(2)
 
   return (
     <div className="flex flex-col h-screen bg-background-light dark:bg-background-dark">

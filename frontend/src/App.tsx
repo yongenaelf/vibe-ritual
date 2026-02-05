@@ -1,4 +1,4 @@
-import { Routes, Route, NavLink } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import DailyIntention from './pages/DailyIntention'
 import Sanctuary from './pages/Sanctuary'
 import RitualBuilder from './pages/RitualBuilder'
