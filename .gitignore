@@ -6,7 +6,6 @@
 node_modules/
 
 # Build outputs
-frontend/
 dist/
 build/
 .next/
