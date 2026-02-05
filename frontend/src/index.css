@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .glass-panel {
+    @apply bg-[rgba(16,29,34,0.7)] backdrop-blur-[20px] border border-white/10;
+  }
+  
+  .altar-glow {
+    box-shadow: 0 0 60px 20px rgba(17, 164, 212, 0.15);
+  }
+  
+  .altar-gradient {
+    background: linear-gradient(to bottom, rgba(16, 29, 34, 0.4), rgba(16, 29, 34, 0.9));
+  }
+  
+  .wabi-sabi-texture {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAkZ5gukk5YQ0JXjiamaDCM3ZTpeqzYYPcPnf2KCm8G1fUHQPSyhqyYF1PUOiEogpuCp1etuhI-29m8qr4B3cXWrH636Ou2hOazXGFS3BLq-zSrbTe62skWZSCLEnhG7F8YxZ6l-CuCds_k0aMr0ShpZNXGYW9qyApkLMyMagqApFxgxhWqmjyeJJPIkQZN5053rG_kO5gaQ-VQxvM4cTyn8Lgzjre5OGqcxrMQvufPBAbbv9urNWNg1GFZUCPAo6twcZFddIHZe-re);
+  }
+  
+  .spirit-card {
+    @apply backdrop-blur-[8px] transition-transform duration-300 ease-out;
+  }
+  
+  .spirit-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(17, 164, 212, 0.3);
+  }
+  
+  .flicker {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(17, 164, 212, 0.3);
+    border-radius: 10px;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(0.98); }
+}

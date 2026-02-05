@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "developer-platform": {
+      "headers": {
+        "Authorization": "Bearer dp_b2b9e4016771ec2074042bd1caf4d40d54e105041d62865c07ce1e1abf4f537e"
+      },
+      "url": "https://platform.aelf.dev/api/v1/mcp"
+    }
+  }
+}
